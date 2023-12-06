@@ -1,0 +1,20 @@
+ASSUME CS:CODE,DS:DATA
+DATA SEGMENT
+A DB 02H
+B DB 03H
+DATA ENDS
+CODE SEGMENT
+START: MOV AX,DATA
+       MOV DX,AX
+       MOV AL,01H
+       MOV BL,02H
+       ADD AL,BL
+       ADD AL,30H
+       MOV DL,AL
+       MOV AH,02
+       INT 21H
+       MOV AH,4CH
+       INT 21H
+CODE ENDS
+       END START
+    

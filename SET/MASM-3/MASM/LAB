@@ -1,0 +1,36 @@
+.model small
+.data
+str1 db "Enter first number: $"
+str2 db 13,10, "Enter second number: $"
+str3 db 13,10, "The sum is: $"
+.code
+main proc
+mov ax,@data
+        mov ds,ax
+        lea dx,str1
+        mov ah,9
+        int 21h
+        mov ah,1
+        int 21h
+        mov b1,a1
+        lea dx,str2
+        mov ah,9
+        int 21h
+        mov ah,1
+        int 21h
+        mov bh,a1
+        sub bh,48
+        sub b1,48
+        lea dx,str3
+        mov ah,9
+        int 21h
+        add bh,b1
+        add bh,48
+        mov d1,bh
+        mov ah,2
+        int 21h
+        mov ah,4Ch
+        int 21h
+        main endp
+
+
