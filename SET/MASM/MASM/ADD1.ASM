@@ -1,10 +1,10 @@
-.model samll
+.model small
 .stack 100h
 .data
-op1 dw?
-op2 dw?
-res  dw?
-carry dw?
+op1 dw ?
+op2 dw ?
+res  dw? 
+carry dw ?
 .code
 start:mov ax,@data
 mov ds,ax
