@@ -1,0 +1,51 @@
+.MODEL SMALL
+.DATA
+    NUM1 DB ?
+    NUM2 DB ?
+    RESULT DB ?
+    MSG1 DB 'Enter first digit: $'
+    MSG2 DB 'Enter second digit: $'
+    MSG3 DB 'Result: $'
+
+.CODE
+MAIN PROC
+    MOV AX, @DATA
+    MOV DS, AX
+
+    ; Input first digit
+    LEA DX, MSG1
+    MOV AH, 09H
+    INT 21H
+    MOV AH, 01H
+    INT 21H
+    SUB AL, '0'
+    MOV NUM1, AL
+
+    ; Input second digit
+    LEA DX, MSG2
+    MOV AH, 09H
+    INT 21H
+    MOV AH, 01H
+    INT 21H
+    SUB AL, '0'
+    MOV NUM2, AL
+
+    ; Perform addition
+    ADD NUM1, NUM2
+    MOV RESULT, NUM1
+
+    ; Display result
+    LEA DX, MSG3
+    MOV AH, 09H
+    INT 21H
+    ADD RESULT, '0'
+    MOV DL, RESULT
+    MOV AH, 02H
+    INT 21H
+
+    ; Exit
+    MOV AH, 4CH
+    INT 21H
+MAIN ENDP
+
+END MAIN

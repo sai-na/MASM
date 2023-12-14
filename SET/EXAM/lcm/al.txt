@@ -1,0 +1,44 @@
+Certainly, here's a step-by-step explanation of the algorithm:
+
+1. **Print Macro Definition (`PRINT`):**
+   - This macro is defined to print a null-terminated string pointed to by the address `MSG` using DOS function 09H.
+
+2. **Read Macro Definition (`READ`):**
+   - This macro is defined to read a digit (0-9) from the user until the Enter key is pressed.
+   - It updates a variable `N` with the entered value.
+
+3. **Main Code:**
+   - Define the model, stack, and data segment with variables and messages.
+
+4. **Read and Print First Number:**
+   - Move data segment address to `AX` and set `DS`.
+   - Print the message "FIRST NUMBER $".
+   - Read the first number and jump to different labels based on Enter key press.
+
+5. **Read and Print Second Number:**
+   - Print the message "SECOND NUMBER $".
+   - Read the second number and jump to different labels based on Enter key press.
+
+6. **Calculate LCM:**
+   - Initialize variables for LCM calculation.
+   - Start a loop for LCM calculation.
+   - If the first variable equals the second, jump to a label.
+   - If the first variable is less than the second, jump to another label.
+   - If the first variable is greater than the second, add the second variable and continue the loop.
+
+7. **Handle LCM Calculation (Greater):**
+   - If the first variable is less than the second, add the first variable and continue the loop.
+
+8. **Handle LCM Calculation (Equal):**
+   - If the first variable equals the second, prepare for LCM calculation.
+   - Perform division by 10 and push remainders to the stack until the quotient becomes zero.
+
+9. **Print LCM:**
+   - Print the message "LCM : $".
+   - Display each digit of the LCM by popping from the stack.
+
+10. **Program Termination:**
+    - Set `AH` to 4CH (DOS function for program termination) and call interrupt 21H.
+    - End the program.
+
+This program takes two numbers as input, calculates their least common multiple (LCM), and prints the result digit by digit. The program then terminates.
